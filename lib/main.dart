@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:settings/utils/constants.dart';
 import 'package:settings/widgets/border_button.dart';
 import 'package:settings/widgets/custom_button.dart';
+import 'package:settings/widgets/create_text.dart';
+import 'package:settings/widgets/create_field.dart';
 
 void main() {
   runApp(const MyApp());
@@ -112,114 +114,36 @@ class _SettingsState extends State<Settings> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          "General",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 21),
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              margin:
-                                  const EdgeInsets.only(top: 15, bottom: 25),
-                              padding: const EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                gradient: _gradient,
-                                borderRadius: BorderRadius.circular(18),
-                              ),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(13),
-                                  color: const Color(0xFF30303C),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    customButton(
-                                        "Security", "Face Id", "FaceID"),
-                                    customButton(
-                                        "icloud Sync", "Face Id", "iCloud"),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                        const Text(
-                          "My Subscriptions",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 21),
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                                margin:
-                                    const EdgeInsets.only(top: 15, bottom: 25),
-                                padding: const EdgeInsets.all(2),
-                                decoration: BoxDecoration(
-                                  gradient: _gradient,
-                                  borderRadius: BorderRadius.circular(18),
-                                ),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(13),
-                                    color: const Color(0xFF30303C),
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      customButton(
-                                          "Sorting", "Date", "sorting"),
-                                      customButton(
-                                          "Summary", "Average", "chart"),
-                                      customButton("Default currency",
-                                          "USD (\$)", "money"),
-                                    ],
-                                  ),
-                                ))
-                          ],
-                        ),
-                        const Text(
-                          "Appearance",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 21),
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(top: 15),
-                              padding: const EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                gradient: _gradient,
-                                borderRadius: BorderRadius.circular(18),
-                              ),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(13),
-                                  color: const Color(0xFF30303C),
-                                ),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: <Widget>[
-                                    customButton(
-                                        "Sorting", "Default", "app_icon"),
-                                    customButton(
-                                        "Summary", "Dark", "light_theme"),
-                                  ],
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
+                        createText("General"),
+                        createField([
+                          "Security",
+                          "Face Id",
+                          "FaceID",
+                          "icloud Sync",
+                          "Face Id",
+                          "iCloud"
+                        ]),
+                        createText("My Subscriptions"),
+                        createField([
+                          "Sorting",
+                          "Date",
+                          "sorting",
+                          "Summary",
+                          "Average",
+                          "chart",
+                          "Default currency",
+                          "USD (\$)",
+                          "money"
+                        ]),
+                        createText("Appereance"),
+                        createField([
+                          "Sorting",
+                          "Default",
+                          "app_icon",
+                          "Summary",
+                          "Dark",
+                          "light_theme"
+                        ]),
                       ],
                     ),
                   )
