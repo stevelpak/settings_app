@@ -54,11 +54,13 @@ class _SettingsState extends State<Settings> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Padding(
-              padding: const EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(
+                top: 10,
+              ),
               child: CircleAvatar(
-                radius: 50,
+                radius: 40,
                 child: Image.asset("assets/avatar.png"),
               ),
             ),
@@ -81,128 +83,149 @@ class _SettingsState extends State<Settings> {
                     color: Color(0xFFA2A2B5), fontWeight: FontWeight.w600),
               ),
             ),
-            UnicornOutlineButton(
-              strokeWidth: 2,
-              radius: 25,
-              gradient: _gradient,
-              bgColor: const Color(0xFF323239),
-              onPressed: () {},
-              child: const Padding(
-                padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
-                child: Text(
-                  "Edit profile",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: UnicornOutlineButton(
+                strokeWidth: 2,
+                radius: 25,
+                gradient: _gradient,
+                bgColor: const Color(0xFF323239),
+                onPressed: () {},
+                child: const Padding(
+                  padding: EdgeInsets.fromLTRB(12, 8, 12, 8),
+                  child: Text(
+                    "Edit profile",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            Expanded(
+              child: ListView(
                 children: [
-                  const Text(
-                    "General",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 21),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 10, bottom: 20),
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          gradient: _gradient,
-                          borderRadius: BorderRadius.circular(18),
+                  Container(
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 30),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "General",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 21),
                         ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            color: const Color(0xFF30303C),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              customButton("Security", "Face Id", "FaceID"),
-                              customButton("icloud Sync", "Face Id", "iCloud"),
-                            ],
-                          ),
+                        Column(
+                          children: [
+                            Container(
+                              margin:
+                                  const EdgeInsets.only(top: 15, bottom: 25),
+                              padding: const EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                gradient: _gradient,
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(13),
+                                  color: const Color(0xFF30303C),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    customButton(
+                                        "Security", "Face Id", "FaceID"),
+                                    customButton(
+                                        "icloud Sync", "Face Id", "iCloud"),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
                         ),
-                      )
-                    ],
-                  ),
-                  const Text(
-                    "My Subscriptions",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 21),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                          margin: const EdgeInsets.only(top: 10, bottom: 20),
-                          padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
-                            gradient: _gradient,
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(13),
-                              color: const Color(0xFF30303C),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                customButton("Sorting", "Date", "sorting"),
-                                customButton("Summary", "Average", "chart"),
-                                customButton(
-                                    "Default currency", "USD (\$)", "money"),
-                              ],
-                            ),
-                          ))
-                    ],
-                  ),
-                  const Text(
-                    "Appearance",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 21),
-                  ),
-                  Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        padding: const EdgeInsets.all(3),
-                        decoration: BoxDecoration(
-                          gradient: _gradient,
-                          borderRadius: BorderRadius.circular(18),
+                        const Text(
+                          "My Subscriptions",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 21),
                         ),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(13),
-                            color: const Color(0xFF30303C),
-                          ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              customButton("Sorting", "Default", "app_icon"),
-                              customButton("Summary", "Dark", "light_theme"),
-                            ],
-                          ),
+                        Column(
+                          children: [
+                            Container(
+                                margin:
+                                    const EdgeInsets.only(top: 15, bottom: 25),
+                                padding: const EdgeInsets.all(2),
+                                decoration: BoxDecoration(
+                                  gradient: _gradient,
+                                  borderRadius: BorderRadius.circular(18),
+                                ),
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(13),
+                                    color: const Color(0xFF30303C),
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
+                                      customButton(
+                                          "Sorting", "Date", "sorting"),
+                                      customButton(
+                                          "Summary", "Average", "chart"),
+                                      customButton("Default currency",
+                                          "USD (\$)", "money"),
+                                    ],
+                                  ),
+                                ))
+                          ],
                         ),
-                      )
-                    ],
-                  ),
+                        const Text(
+                          "Appearance",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 21),
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 15),
+                              padding: const EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                gradient: _gradient,
+                                borderRadius: BorderRadius.circular(18),
+                              ),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(13),
+                                  color: const Color(0xFF30303C),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    customButton(
+                                        "Sorting", "Default", "app_icon"),
+                                    customButton(
+                                        "Summary", "Dark", "light_theme"),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
-            ),
+            )
           ],
         ),
       ),
