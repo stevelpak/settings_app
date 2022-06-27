@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:settings/widgets/custom_button.dart';
 
-final LinearGradient _gradient = const LinearGradient(
+const LinearGradient _gradient = LinearGradient(
     colors: [Colors.white24, Colors.transparent],
     transform: GradientRotation(45));
 

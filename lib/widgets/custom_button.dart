@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+
+bool _switchValue = false;
 
 Widget customButton(String key, String value, String icon) {
   return InkWell(
     child: ListTile(
       leading: Image.asset(
-        "assets/${icon}.png",
+        "assets/$icon.png",
         height: 24,
       ),
       title: Text(
@@ -14,14 +17,22 @@ Widget customButton(String key, String value, String icon) {
       trailing: Wrap(
         spacing: 12,
         children: [
-          Text(
-            value,
-            style: const TextStyle(color: Colors.white),
-          ),
-          Image.asset(
-            "assets/vector.png",
-            height: 18,
-          ),
+          if (value == "switch")
+            CupertinoSwitch(
+                value: _switchValue,
+                onChanged: (value) {
+                  _switchValue = value;
+                }),
+          if (value != "switch")
+            Text(
+              value,
+              style: const TextStyle(color: Colors.white),
+            ),
+          if (value != "switch")
+            Image.asset(
+              "assets/vector.png",
+              height: 18,
+            ),
         ],
       ),
     ),
