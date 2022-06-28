@@ -18,11 +18,14 @@ Widget customButton(String key, String value, String icon) {
         spacing: 12,
         children: [
           if (value == "switch")
-            CupertinoSwitch(
+            StatefulBuilder(
+              builder: (context, setState) => CupertinoSwitch(
                 value: _switchValue,
                 onChanged: (value) {
-                  _switchValue = value;
-                }),
+                  setState(() => _switchValue = value);
+                },
+              ),
+            ),
           if (value != "switch")
             Text(
               value,
